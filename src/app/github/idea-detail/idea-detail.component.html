@@ -1,0 +1,13 @@
+<div *ngIf="issueDetails; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock>
+  <h2>{{ issueDetails.title }}</h2>
+
+  <p>
+    {{ issueDetails.body }}
+  </p>
+
+  <pre>this.issueDetails = {{ issueDetails | json }}</pre>
+</ng-template>
+<ng-template #elseBlock>
+  No Issue
+</ng-template>

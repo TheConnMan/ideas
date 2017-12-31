@@ -1,0 +1,8 @@
+<h3>Ideas List</h3>
+<ul>
+	<li *ngFor="let idea of ideas | async">
+    <a [routerLink]="['/ideas', idea.number]">
+      {{ idea.title }}
+    </a>
+  </li>
+</ul>
