@@ -3,8 +3,6 @@
   <h2>{{ issueDetails.title }}</h2>
 
   <markdown-to-html [data]="issueDetails.body"></markdown-to-html>
-
-  <pre>this.issueDetails = {{ issueDetails | json }}</pre>
 </ng-template>
 <ng-template #elseBlock>
   No Issue
