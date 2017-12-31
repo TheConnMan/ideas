@@ -1,54 +1,60 @@
 <div *ngIf="issueDetails; then thenBlock; else elseBlock"></div>
 <ng-template #thenBlock>
-  <h2 style="float: left;">{{ issueDetails.title }}</h2>
+  <div class="ui segment">
+    <h2 style="float: left;">{{ issueDetails.title }}</h2>
 
-  <a class="ui large right corner label" [routerLink]="['/ideas']">
-    <i class="reply icon" style="cursor: pointer;"></i>
-  </a>
+    <a class="ui large right corner label" [routerLink]="['/ideas']">
+      <i class="reply icon" style="cursor: pointer;"></i>
+    </a>
 
-  <div class="ui horizontal divider" style="clear: both;"></div>
+    <div class="ui horizontal divider" style="clear: both;"></div>
 
-  <a class="ui label" [href]="issueLink()" target="_blank">
-    <i class="thumbs up icon"></i>
-    {{ issueDetails.reactions['+1'] }}
-  </a>
-  <a class="ui label" [href]="issueLink()" target="_blank">
-    <i class="thumbs down icon"></i>
-    {{ issueDetails.reactions['-1'] }}
-  </a>
-  <a class="ui label" [href]="issueLink()" target="_blank">
-    <i class="comment icon"></i>
-    {{ issueDetails.comments }}
-  </a>
+    <a class="ui label" [href]="issueLink()" target="_blank">
+      <i class="thumbs up icon"></i>
+      {{ issueDetails.reactions['+1'] }}
+    </a>
+    <a class="ui label" [href]="issueLink()" target="_blank">
+      <i class="thumbs down icon"></i>
+      {{ issueDetails.reactions['-1'] }}
+    </a>
+    <a class="ui label" [href]="issueLink()" target="_blank">
+      <i class="comment icon"></i>
+      {{ issueDetails.comments }}
+    </a>
+  </div>
 
-  <div class="ui horizontal divider" style="clear: both;"></div>
+  <div class="ui segment">
+    <markdown-to-html [data]="issueDetails.body"></markdown-to-html>
+  </div>
 
-  <markdown-to-html [data]="issueDetails.body"></markdown-to-html>
-
-  <div class="ui comments">
-    <h3 class="ui dividing header">Comments</h3>
-    <div class="comment" *ngFor="let comment of issueComments">
-      <a class="avatar">
-        <img [src]="comment.user.avatar_url">
-      </a>
-      <div class="content">
-        <a class="author">{{ comment.user.login }}</a>
-        <div class="metadata">
-          <span class="date">{{ comment.created_at | amTimeAgo }}</span>
-        </div>
-        <div class="text">
-          {{ comment.body }}
+  <div class="ui segment">
+    <div class="ui comments">
+      <h3 class="ui dividing header">Comments</h3>
+      <div class="comment" *ngFor="let comment of issueComments">
+        <a class="avatar">
+          <img [src]="comment.user.avatar_url">
+        </a>
+        <div class="content">
+          <a class="author">{{ comment.user.login }}</a>
+          <div class="metadata">
+            <span class="date">{{ comment.created_at | amTimeAgo }}</span>
+          </div>
+          <div class="text">
+            {{ comment.body }}
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    </div>
 </ng-template>
 <ng-template #elseBlock>
-  <h2 class="ui center aligned icon header">
-    <i class="cloud icon"></i>
-    <div class="content">
-      No Idea Found
-      <div class="sub header">Return <a [routerLink]="['/ideas']">home</a></div>
-    </div>
-  </h2>
+  <div class="ui segment">
+    <h2 class="ui center aligned icon header">
+      <i class="cloud icon"></i>
+      <div class="content">
+        No Idea Found
+        <div class="sub header">Return <a [routerLink]="['/ideas']">home</a></div>
+      </div>
+    </h2>
+  </div>
 </ng-template>
