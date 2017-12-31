@@ -28,4 +28,8 @@ export class IdeaDetailComponent implements OnInit {
       }
     });
   }
+
+  issueLink() {
+    return `https://github.com/${this.user}/${this.repo}/issues/${this.idea}`;
+  }
 }

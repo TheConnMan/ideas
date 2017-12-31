@@ -8,6 +8,21 @@
 
   <div class="ui horizontal divider" style="clear: both;"></div>
 
+  <a class="ui label" [href]="issueLink()" target="_blank">
+    <i class="thumbs up icon"></i>
+    {{ issueDetails.reactions['+1'] }}
+  </a>
+  <a class="ui label" [href]="issueLink()" target="_blank">
+    <i class="thumbs down icon"></i>
+    {{ issueDetails.reactions['-1'] }}
+  </a>
+  <a class="ui label" [href]="issueLink()" target="_blank">
+    <i class="comment icon"></i>
+    {{ issueDetails.comments }}
+  </a>
+
+  <div class="ui horizontal divider" style="clear: both;"></div>
+
   <markdown-to-html [data]="issueDetails.body"></markdown-to-html>
 </ng-template>
 <ng-template #elseBlock>
