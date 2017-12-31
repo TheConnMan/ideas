@@ -1,6 +1,12 @@
 <div *ngIf="issueDetails; then thenBlock; else elseBlock"></div>
 <ng-template #thenBlock>
-  <h2>{{ issueDetails.title }}</h2>
+  <h2 style="float: left;">{{ issueDetails.title }}</h2>
+
+  <a class="ui large right corner label" [routerLink]="['/ideas']">
+    <i class="reply icon" style="cursor: pointer;"></i>
+  </a>
+
+  <div class="ui horizontal divider" style="clear: both;"></div>
 
   <markdown-to-html [data]="issueDetails.body"></markdown-to-html>
 </ng-template>
