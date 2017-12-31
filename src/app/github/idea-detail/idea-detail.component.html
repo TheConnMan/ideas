@@ -24,6 +24,24 @@
   <div class="ui horizontal divider" style="clear: both;"></div>
 
   <markdown-to-html [data]="issueDetails.body"></markdown-to-html>
+
+  <div class="ui comments">
+    <h3 class="ui dividing header">Comments</h3>
+    <div class="comment" *ngFor="let comment of issueComments">
+      <a class="avatar">
+        <img [src]="comment.user.avatar_url">
+      </a>
+      <div class="content">
+        <a class="author">{{ comment.user.login }}</a>
+        <div class="metadata">
+          <span class="date">{{ comment.created_at | amTimeAgo }}</span>
+        </div>
+        <div class="text">
+          {{ comment.body }}
+        </div>
+      </div>
+    </div>
+  </div>
 </ng-template>
 <ng-template #elseBlock>
   <h2 class="ui center aligned icon header">

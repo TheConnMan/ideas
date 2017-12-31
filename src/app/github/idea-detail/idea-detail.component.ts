@@ -11,7 +11,8 @@ export class IdeaDetailComponent implements OnInit {
   private user: string = 'theconnman';
   private repo: string = 'ideas';
   private idea: number;
-  public issueDetails:any = {};
+  public issueDetails: any = {};
+  public issueComments: any[] = [];
 
   constructor(public github:GithubService, private route:ActivatedRoute) {
   }
@@ -24,6 +25,10 @@ export class IdeaDetailComponent implements OnInit {
         this.github.getRepoIssue(this.user, this.repo, this.idea)
           .subscribe(issueDetails => {
             this.issueDetails = issueDetails;
+          });
+        this.github.getIssueComments(this.user, this.repo, this.idea)
+          .subscribe(issueComments => {
+            this.issueComments = issueComments;
           });
       }
     });

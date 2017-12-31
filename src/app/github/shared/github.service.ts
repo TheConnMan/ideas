@@ -14,6 +14,10 @@ export class GithubService {
     return this.makeRequest(`repos/${user}/${repo}/issues/${issue}`);
   }
 
+  getIssueComments(user: string, repo: string, issue: number) {
+    return this.makeRequest(`repos/${user}/${repo}/issues/${issue}/comments`);
+  }
+
   private makeRequest(path: string) {
     let params = new URLSearchParams();
     let headers = new Headers();
