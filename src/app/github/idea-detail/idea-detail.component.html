@@ -11,5 +11,11 @@
   <markdown-to-html [data]="issueDetails.body"></markdown-to-html>
 </ng-template>
 <ng-template #elseBlock>
-  No Issue
+  <h2 class="ui center aligned icon header">
+    <i class="cloud icon"></i>
+    <div class="content">
+      No Idea Found
+      <div class="sub header">Return <a [routerLink]="['/ideas']">home</a></div>
+    </div>
+  </h2>
 </ng-template>

@@ -22,6 +22,7 @@ export class GithubService {
 
     let url = `https://api.github.com/${ path }`;
     return this.http.get(url, { search: params, headers: headers })
-      .map((res) => res.json());
+      .map((res) => res.json())
+      .catch((error) => Promise.resolve());
   }
 }
