@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
+import { MomentModule } from 'angular2-moment';
 
 import { IdeaListComponent } from './github/idea-list/idea-list.component';
 import { IdeaDetailComponent } from './github/idea-detail/idea-detail.component';
@@ -24,7 +25,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: true }),
-    MarkdownToHtmlModule.forRoot()
+    MarkdownToHtmlModule.forRoot(),
+    MomentModule
   ],
   providers: [
     GithubService

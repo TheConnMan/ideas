@@ -1,8 +1,37 @@
-<h3>Ideas List</h3>
-<ul>
-	<li *ngFor="let idea of ideas | async">
-    <a [routerLink]="['/ideas', idea.number]">
-      {{ idea.title }}
-    </a>
-  </li>
-</ul>
+<div class="ui two cards">
+  <div class="card" *ngFor="let idea of ideas | async">
+    <div *ngIf="idea.state === 'open'" class="ui yellow right corner label">
+      <i class="wait icon"></i>
+    </div>
+    <div *ngIf="idea.state !== 'open'" class="ui green right corner label">
+      <i class="check icon"></i>
+    </div>
+    <div class="content">
+      <a class="header" [routerLink]="['/ideas', idea.number]">{{ idea.title }}</a>
+      <div class="meta" style="font-size: 1.25em;">
+        <span>
+          <i class="thumbs up icon"></i>
+          {{ idea.reactions['+1'] }}
+        </span>
+        <span>
+          <i class="thumbs down icon"></i>
+          {{ idea.reactions['-1'] }}
+        </span>
+        <span>
+          <i class="comment icon"></i>
+          {{ idea.comments }}
+        </span>
+      </div>
+    </div>
+    <div class="extra content">
+      <span *ngIf="idea.closed_at" class="right floated">
+        <i class="lock icon"></i>
+        Closed {{ idea.closed_at | amTimeAgo }}
+      </span>
+      <span>
+        <i class="write icon"></i>
+        Created {{ idea.created_at | amTimeAgo }}
+      </span>
+    </div>
+  </div>
+</div>

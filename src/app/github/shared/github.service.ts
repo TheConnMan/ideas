@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
+import { Http, URLSearchParams, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -16,9 +16,12 @@ export class GithubService {
 
   private makeRequest(path: string) {
     let params = new URLSearchParams();
+    let headers = new Headers();
+
+    headers.append('Accept', 'application/vnd.github.squirrel-girl-preview+json');
 
     let url = `https://api.github.com/${ path }`;
-    return this.http.get(url, {search: params})
+    return this.http.get(url, { search: params, headers: headers })
       .map((res) => res.json());
   }
 }
