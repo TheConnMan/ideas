@@ -2,9 +2,7 @@
 <ng-template #thenBlock>
   <h2>{{ issueDetails.title }}</h2>
 
-  <p>
-    {{ issueDetails.body }}
-  </p>
+  <markdown-to-html [data]="issueDetails.body"></markdown-to-html>
 
   <pre>this.issueDetails = {{ issueDetails | json }}</pre>
 </ng-template>
