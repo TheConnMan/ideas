@@ -1,0 +1,57 @@
+{
+  "name": "ideas",
+  "version": "0.1.0",
+  "description": "An ideas explorer based on GitHub issues",
+  "scripts": {
+    "build": "rimraf dist && webpack --progress",
+    "watch": "npm run build -- --watch",
+    "server": "webpack-dev-server --inline --progress --port 3000 --content-base src",
+    "start": "npm run server"
+  },
+  "contributors": [
+    "TheConnMan <bcconn2112@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "~5.1.2",
+    "@angular/compiler": "~5.1.2",
+    "@angular/compiler-cli": "~5.1.2",
+    "@angular/core": "~5.1.2",
+    "@angular/forms": "~5.1.2",
+    "@angular/http": "~5.1.2",
+    "@angular/platform-browser": "~5.1.2",
+    "@angular/platform-browser-dynamic": "~5.1.2",
+    "@angular/platform-server": "~5.1.2",
+    "@angular/router": "~5.1.2",
+    "@angular/upgrade": "~5.1.2",
+    "angular-in-memory-web-api": "^0.5.2",
+    "core-js": "^2.4.1",
+    "ie-shim": "^0.1.0",
+    "reflect-metadata": "^0.1.9",
+    "rxjs": "5.5.6",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
+    "@types/node": "^8.5.2",
+    "angular2-router-loader": "^0.3.4",
+    "angular2-template-loader": "^0.6.0",
+    "awesome-typescript-loader": "^3.1.2",
+    "css-loader": "^0.28.7",
+    "html-webpack-plugin": "^2.28.0",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
+    "to-string-loader": "^1.1.4",
+    "typescript": "~2.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "2.9.7",
+    "webpack-merge": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theconnman/ideas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theconnman/ideas/issues"
+  },
+  "homepage": "https://github.com/theconnman/theconnman#readme"
+}
