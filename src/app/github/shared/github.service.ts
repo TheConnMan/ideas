@@ -7,7 +7,7 @@ export class GithubService {
   constructor(private http: Http) { }
 
   getRepoIssues(user: string, repo: string) {
-    return this.makeRequest(`repos/${user}/${repo}/issues`);
+    return this.makeRequest(`repos/${user}/${repo}/issues`, { labels: 'idea' });
   }
 
   getRepoIssue(user: string, repo: string, issue: number) {
@@ -18,8 +18,10 @@ export class GithubService {
     return this.makeRequest(`repos/${user}/${repo}/issues/${issue}/comments`);
   }
 
-  private makeRequest(path: string) {
+  private makeRequest(path: string, rawParams: { [key:string]:string } = {}) {
     let params = new URLSearchParams();
+    Object.keys(rawParams).forEach(param => params.append(param, rawParams[param]));
+
     let headers = new Headers();
 
     headers.append('Accept', 'application/vnd.github.squirrel-girl-preview+json');
