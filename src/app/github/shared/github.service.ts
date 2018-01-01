@@ -7,7 +7,7 @@ export class GithubService {
   constructor(private http: Http) { }
 
   getRepoIssues(user: string, repo: string) {
-    return this.makeRequest(`repos/${user}/${repo}/issues`, { labels: 'idea' });
+    return this.makeRequest(`repos/${user}/${repo}/issues`, { labels: 'idea', state: 'all' });
   }
 
   getRepoIssue(user: string, repo: string, issue: number) {
