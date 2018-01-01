@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- '8'
+script:
+- npm run build
+deploy:
+  provider: s3
+  access_key_id: AKIAIHUNZRQAJHU2JHZQ
+  secret_access_key:
+    secure: gcT28FWSuE6ZPiOzBkgN9biWsJZoTVNKWalNGTagBCV056aKoYrw7SwkBo1bbiDAD6FxE/Z/Mc7gtqZ6d8ZgXvrYYa/j6c8B1wH7h/KaUlXtecatgu5pbZG+B93TIRUJcXsf8JJVAODA5oeyrjgEmLZeV70RxbNsNF9Fpvge6iBP29NlQIj5IEGJWWAwp6hAol8a5X5/k/y9AKZV9e+jkQzygGO92iY8laO1ar7nf2GKXcT5WyPNqe2SNqeBpFWZ6cCgCUBOLe/OC0cn4iy7HmN/AGU5J0I/2EbSD/THBA0IhsQ8OcWg4iPNtlQOofNNVtNflqTNQxYpa8oE/i24mD3sitgQhpWN5EB3GSOldEO/6n6IkTKZPiX733qWAb95s7f1IQNhes654gUbxf01xyAwdMJX7vvsUlUH9c/oqcz8ir0QFjtzN7vgPxPn74KAODkg70XOyT9WMoioA5QKYTUYgxcr0QshLESnN7MU3vFU21T3qrwyxHnBe94GrsCY8WnCjGb/RjCaTW7M7S8Oq49Se4BlJjVuOPn3ukS/MM+GFpllNRsWfRytJk7HUk7jKRawNWiHh2G+Dbqst2Cv6+JsuPOfnARjgvuU3JZ25C+Cr5Dh7PAidbFo6Wy+VaiSyuO2U5oLkXWytLjxEfMHCuCW9BvJ4+5I3F+c3DQPvy0=
+  bucket: theconnman-ideas
+  local-dir: dist
+  acl: public_read
+  on:
+    branch: master
+    repo: TheConnMan/ideas
