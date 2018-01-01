@@ -9,15 +9,15 @@
 
     <div class="ui horizontal divider" style="clear: both;"></div>
 
-    <a class="ui label" [href]="issueLink()" target="_blank">
+    <a class="ui label" [href]="issueLink()" target="_blank" data-tooltip="Add a +1 to the GitHub issue to vote">
       <i class="thumbs up icon"></i>
       {{ issueDetails.reactions['+1'] }}
     </a>
-    <a class="ui label" [href]="issueLink()" target="_blank">
+    <a class="ui label" [href]="issueLink()" target="_blank" data-tooltip="Add a -1 to the GitHub issue to vote">
       <i class="thumbs down icon"></i>
       {{ issueDetails.reactions['-1'] }}
     </a>
-    <a class="ui label" [href]="issueLink()" target="_blank">
+    <a class="ui label" [href]="issueLink()" target="_blank" data-tooltip="Add a comment on the GitHub issue to give feedback">
       <i class="comment icon"></i>
       {{ issueDetails.comments }}
     </a>
