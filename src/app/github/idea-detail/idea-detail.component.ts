@@ -8,25 +8,22 @@ import {GithubService} from '../shared/github.service';
   templateUrl: './idea-detail.component.html'
 })
 export class IdeaDetailComponent implements OnInit {
-  private user: string = 'theconnman';
-  private repo: string = 'ideas';
   private idea: number;
   public issueDetails: any = {};
   public issueComments: any[] = [];
 
-  constructor(public github:GithubService, private route:ActivatedRoute) {
-  }
+  constructor(public github:GithubService, private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.idea = params['idea'] || '';
 
       if (this.idea) {
-        this.github.getRepoIssue(this.user, this.repo, this.idea)
+        this.github.getRepoIssue(this.idea)
           .subscribe(issueDetails => {
             this.issueDetails = issueDetails;
           });
-        this.github.getIssueComments(this.user, this.repo, this.idea)
+        this.github.getIssueComments(this.idea)
           .subscribe(issueComments => {
             this.issueComments = issueComments;
           });
@@ -35,6 +32,6 @@ export class IdeaDetailComponent implements OnInit {
   }
 
   issueLink() {
-    return `https://github.com/${this.user}/${this.repo}/issues/${this.idea}`;
+    return `https://github.com/${this.github.user}/${this.github.repo}/issues/${this.idea}`;
   }
 }

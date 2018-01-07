@@ -4,18 +4,22 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class GithubService {
+
+  public user: string = 'theconnman';
+  public repo: string = 'ideas';
+
   constructor(private http: Http) { }
 
-  getRepoIssues(user: string, repo: string) {
-    return this.makeRequest(`repos/${user}/${repo}/issues`, { labels: 'idea', state: 'all' });
+  getRepoIssues() {
+    return this.makeRequest(`repos/${this.user}/${this.repo}/issues`, { labels: 'idea', state: 'all' });
   }
 
-  getRepoIssue(user: string, repo: string, issue: number) {
-    return this.makeRequest(`repos/${user}/${repo}/issues/${issue}`);
+  getRepoIssue(issue: number) {
+    return this.makeRequest(`repos/${this.user}/${this.repo}/issues/${issue}`);
   }
 
-  getIssueComments(user: string, repo: string, issue: number) {
-    return this.makeRequest(`repos/${user}/${repo}/issues/${issue}/comments`);
+  getIssueComments(issue: number) {
+    return this.makeRequest(`repos/${this.user}/${this.repo}/issues/${issue}/comments`);
   }
 
   private makeRequest(path: string, rawParams: { [key:string]:string } = {}) {

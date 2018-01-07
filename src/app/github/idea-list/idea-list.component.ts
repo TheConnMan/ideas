@@ -9,8 +9,6 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './idea-list.component.html',
 })
 export class IdeaListComponent implements OnInit {
-  user: string = 'theconnman';
-  repo: string = 'ideas';
   ideas: Observable<any>;
 
   constructor(public github: GithubService, private route: ActivatedRoute) {
@@ -18,7 +16,7 @@ export class IdeaListComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.ideas = this.github.getRepoIssues(this.user, this.repo);
+      this.ideas = this.github.getRepoIssues();
     });
   }
 }
