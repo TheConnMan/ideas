@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {GithubService} from '../shared/github.service';
 
 @Component({
   selector: 'idea-detail',
   styleUrls: ['./idea-detail.component.css'],
-  templateUrl: './idea-detail.component.html'
+  templateUrl: './idea-detail.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class IdeaDetailComponent implements OnInit {
   private idea: number;
